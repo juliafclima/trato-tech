@@ -9,6 +9,7 @@ import Button from "components/Button";
 
 import styles from "./Anuncie.module.scss";
 import { useParams } from "react-router-dom";
+import Input from "components/Input";
 
 const schema = yup.object().shape({
   titulo: yup.string().required("Nome do produto é obrigatório"),
@@ -28,7 +29,7 @@ const schema = yup.object().shape({
 
 export default function Anuncie() {
   const dispatch = useDispatch();
-  const { nomeCategoria = ''} = useParams();
+  const { nomeCategoria = "" } = useParams();
 
   const {
     register,
@@ -57,7 +58,7 @@ export default function Anuncie() {
       />
 
       <form className={styles.formulario} onSubmit={handleSubmit(cadastrar)}>
-        <input
+        <Input
           className={errors.titulo ? styles["input-erro"] : ""}
           {...register("titulo")}
           placeholder="Nome do produto"
@@ -69,7 +70,7 @@ export default function Anuncie() {
           </span>
         )}
 
-        <input
+        <Input
           className={errors.titulo ? styles["input-erro"] : ""}
           {...register("descricao")}
           placeholder="Descrição do produto"
@@ -81,7 +82,7 @@ export default function Anuncie() {
           </span>
         )}
 
-        <input
+        <Input
           className={errors.titulo ? styles["input-erro"] : ""}
           {...register("foto")}
           placeholder="URL da imagem do produto"
@@ -114,7 +115,7 @@ export default function Anuncie() {
           </span>
         )}
 
-        <input
+        <Input
           className={errors.titulo ? styles["input-erro"] : ""}
           {...register("preco")}
           type="number"
