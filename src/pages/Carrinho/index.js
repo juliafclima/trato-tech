@@ -6,6 +6,7 @@ import Item from "components/Item";
 
 import styles from "./Carrinho.module.scss";
 import { resetarCarrinho } from "store/reducers/carrinho";
+import Button from "components/Button";
 
 export default function Carrinho() {
   const dispatch = useDispatch();
@@ -56,12 +57,9 @@ export default function Carrinho() {
           </span>
         </div>
 
-        <button
-          className={styles.finalizar}
-          onClick={() => dispatch(resetarCarrinho())}
-        >
+        <Button onClick={() => dispatch(resetarCarrinho())}>
           Finalizar compra
-        </button>
+        </Button>
       </div>
     </div>
   );

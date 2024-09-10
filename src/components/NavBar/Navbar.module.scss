@@ -37,6 +37,7 @@
   display: flex;
   justify-content: flex-start;
   gap: 20px;
+  text-decoration: none;
 
   @media(max-width: $tablet) {
     justify-self: start;
@@ -46,6 +47,11 @@
 .link {
   color: white;
   font-size: 22px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .busca {
@@ -58,6 +64,11 @@
 .selected {
   font-weight: bold;
   text-decoration: underline;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .icones {
