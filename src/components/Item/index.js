@@ -5,6 +5,7 @@ import {
   AiFillPlusCircle,
   AiOutlineCheck,
   AiFillEdit,
+  AiFillCloseCircle,
 } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,7 +14,7 @@ import { useState } from "react";
 
 import styles from "./Item.module.scss";
 
-import { mudarFavorito, mudarItem } from "store/reducers/items";
+import { deletarItem, mudarFavorito, mudarItem } from "store/reducers/items";
 import { mudarCarrinho, mudarQuantidade } from "store/reducers/carrinho";
 import { formatarPreco } from "utils/formatarPreco";
 import Input from "components/Input";
@@ -89,6 +90,12 @@ export default function Item(props) {
         [styles.itemNoCarrinho]: carrinho,
       })}
     >
+      <AiFillCloseCircle
+        {...iconeProps}
+        className={`${styles["item-acao"]} ${styles["item-deletar"]}`}
+        onClick={() => dispatch(deletarItem(id))}
+      />
+
       <div className={styles["item-imagem"]}>
         <img src={foto} alt={titulo} title={titulo} />
       </div>

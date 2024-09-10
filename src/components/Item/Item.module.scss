@@ -4,11 +4,16 @@
   display: flex;
   filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.08));
   flex-direction: column;
-  overflow: hidden;
   width: 335px;
 
+  &-deletar {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+  }
+
   &-descricao {
-    background-color: #EFF9FF;
+    background-color: #eff9ff;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -19,7 +24,7 @@
     padding: 16px 16px 0 16px;
 
     h2 {
-      color: #1875E8;
+      color: #1875e8;
       font-size: 20px;
     }
 
@@ -32,6 +37,7 @@
     margin: 0 auto;
     height: 160px;
     width: 335px;
+    overflow: hidden;
 
     img {
       width: 100%;
@@ -47,7 +53,7 @@
 
   &-preco {
     align-items: center;
-    background-color: #1875E8;
+    background-color: #1875e8;
     color: white;
     display: flex;
     font-size: 20px;
@@ -85,12 +91,12 @@
     display: flex;
     gap: 10px;
     justify-content: center;
-    
+
     svg {
       cursor: pointer;
     }
   }
-  
+
   .item-acoes {
     gap: 50px;
     justify-content: flex-end;

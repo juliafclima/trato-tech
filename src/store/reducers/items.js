@@ -299,9 +299,13 @@ const itensSlice = createSlice({
         return item;
       });
     },
+    deletarItem: (state, { payload }) => {
+      return state.filter((item) => item.id !== payload);
+    },
   },
 });
 
-export const { mudarFavorito, cadastrarItem, mudarItem } = itensSlice.actions;
+export const { mudarFavorito, cadastrarItem, mudarItem, deletarItem } =
+  itensSlice.actions;
 
 export default itensSlice.reducer;
