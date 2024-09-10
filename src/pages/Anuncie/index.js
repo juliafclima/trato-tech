@@ -1,12 +1,14 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
+import { cadastrarItem } from "store/reducers/items";
 import Header from "components/Header";
 import Button from "components/Button";
 
 import styles from "./Anuncie.module.scss";
+import { useParams } from "react-router-dom";
 
 const schema = yup.object().shape({
   titulo: yup.string().required("Nome do produto é obrigatório"),
@@ -25,6 +27,9 @@ const schema = yup.object().shape({
 });
 
 export default function Anuncie() {
+  const dispatch = useDispatch();
+  const { nomeCategoria = ''} = useParams();
+
   const {
     register,
     handleSubmit,
@@ -32,7 +37,7 @@ export default function Anuncie() {
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
-      categoria: "",
+      categoria: nomeCategoria,
     },
   });
 
@@ -41,7 +46,7 @@ export default function Anuncie() {
   );
 
   function cadastrar(data) {
-    console.log("produto", data);
+    dispatch(cadastrarItem(data));
   }
 
   return (
@@ -91,6 +96,7 @@ export default function Anuncie() {
         <select
           className={errors.titulo ? styles["input-erro"] : ""}
           {...register("categoria")}
+          disabled={nomeCategoria}
         >
           <option value="" disabled>
             Selecione a categoria

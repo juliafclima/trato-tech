@@ -3,11 +3,19 @@ import TituloSemImagem from "./TituloSemImagem";
 
 import styles from "./Header.module.scss";
 
-export default function Header({ titulo, descricao, className = "", imagem }) {
+export default function Header({
+  titulo,
+  descricao,
+  className = "",
+  imagem,
+  children,
+}) {
   return (
     <header className={styles.header}>
       {titulo && !imagem && (
-        <TituloSemImagem titulo={titulo} descricao={descricao} />
+        <TituloSemImagem titulo={titulo} descricao={descricao}>
+          {children}
+        </TituloSemImagem>
       )}
 
       {titulo && imagem && (
@@ -16,7 +24,9 @@ export default function Header({ titulo, descricao, className = "", imagem }) {
           descricao={descricao}
           imagem={imagem}
           className={className}
-        />
+        >
+          {children}
+        </TituloComImagem>
       )}
     </header>
   );
