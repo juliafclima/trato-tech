@@ -1,4 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import categoriasService from "services/categorias";
+
+export const buscarCategorias = createAsyncThunk(
+  "categorias/buscar",
+  categoriasService.buscar
+);
 
 const categoriasSlice = createSlice({
   name: "categorias",
@@ -7,6 +13,11 @@ const categoriasSlice = createSlice({
     adicionarCategorias: (state, { payload }) => {
       state.push(...payload);
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(buscarCategorias.fulfilled, (state, { payload }) => {
+      return payload;
+    });
   },
 });
 

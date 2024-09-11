@@ -16,9 +16,9 @@ export default function Categoria() {
     const regexp = new RegExp(state.busca, "i");
 
     return {
-      categoria: state.categorias.find(
-        (categoria) => categoria.id === nomeCategoria
-      ),
+      categoria:
+        state.categorias.find((categoria) => categoria.id === nomeCategoria) ||
+        {},
 
       itens: state.itens.filter(
         (item) => item.categoria === nomeCategoria && item.titulo.match(regexp)
@@ -42,7 +42,7 @@ export default function Categoria() {
         {itens?.map((item) => (
           <Item key={item.id} {...item} />
         ))}
-      </div> 
+      </div>
     </div>
   );
 }
