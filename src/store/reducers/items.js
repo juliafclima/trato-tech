@@ -34,11 +34,6 @@ const itensSlice = createSlice({
       state.push(...payload);
     },
   },
-  extraReducers: (builder) => {
-    builder.addCase(buscarItens.fulfilled, (state, { payload }) => {
-      return payload;
-    });
-  },
 });
 
 export const {

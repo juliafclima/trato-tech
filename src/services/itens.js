@@ -6,6 +6,11 @@ const itensService = {
 
     return response.data;
   },
+  buscarDeCategorias: async (nomeCategoria) => {
+    const response = await instance.get(`/itens?categoria=${nomeCategoria}`);
+
+    return response.data;
+  },
 };
 
 export default itensService;

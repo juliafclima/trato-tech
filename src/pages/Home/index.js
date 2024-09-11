@@ -7,7 +7,7 @@ import styles from "./Home.module.scss";
 
 import Header from "components/Header";
 import Button from "components/Button";
-import { buscarCategorias } from "store/reducers/categorias";
+import { carregarCategorias } from "store/reducers/categorias";
 import { buscarItens } from "store/reducers/items";
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
   const categorias = useSelector((state) => state.categorias);
 
   useEffect(() => {
-    dispatch(buscarCategorias());
+    dispatch(carregarCategorias());
     dispatch(buscarItens());
   }, [dispatch]);
 

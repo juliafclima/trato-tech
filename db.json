@@ -65,15 +65,6 @@
       "categoria": "eletronicos"
     },
     {
-      "id": 4,
-      "titulo": "Assistente virtual com tela",
-      "descricao": "Desenvolvido para se mover com você: com um display HD de 10,1\" que se move automaticamente, as chamadas de vídeo, as receitas e os filmes e séries estarão sempre à vista. Os alto-falantes oferecem som direcional premium e de alta qualidade.",
-      "foto": "/assets/itens/assistente-virtual-tela.png",
-      "favorito": false,
-      "preco": 1600,
-      "categoria": "eletronicos"
-    },
-    {
       "id": 5,
       "titulo": "Leitor de livros digitais",
       "descricao": "O Leitor de livros digitais com a maior e melhor resolução - tela Paperwhite de 7\" e 300 ppi. Leia como se fosse em papel, sem reflexo, mesmo sob a luz do sol.",

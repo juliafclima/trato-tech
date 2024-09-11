@@ -1,15 +1,20 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useParams } from "react-router-dom";
+
+import styles from "./Anuncie.module.scss";
 
 import { cadastrarItem } from "store/reducers/items";
 import Header from "components/Header";
 import Button from "components/Button";
-
-import styles from "./Anuncie.module.scss";
-import { useParams } from "react-router-dom";
 import Input from "components/Input";
+import {
+  carregarCategorias,
+  carregarUmaCategoria,
+} from "store/reducers/categorias";
 
 const schema = yup.object().shape({
   titulo: yup.string().required("Nome do produto é obrigatório"),
@@ -49,6 +54,12 @@ export default function Anuncie() {
   function cadastrar(data) {
     dispatch(cadastrarItem(data));
   }
+
+  useEffect(() => {
+    dispatch(
+      nomeCategoria ? carregarUmaCategoria(nomeCategoria) : carregarCategorias
+    );
+  }, [dispatch, nomeCategoria]);
 
   return (
     <div className={styles.container}>
