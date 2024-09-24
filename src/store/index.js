@@ -5,9 +5,9 @@ import categoriasSlice from "./reducers/categorias";
 import itensSlice from "./reducers/items";
 import carrinhoSlice from "./reducers/carrinho";
 import buscaSlice from "./reducers/busca";
-import { categoriasListener } from "./middlewares/categorias";
 import { itensListener } from "./middlewares/itens";
 import { categoriasSaga } from "./sagas/categorias";
+import { carrinhoSaga } from "./sagas/carrinho";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -27,5 +27,6 @@ const store = configureStore({
 });
 
 sagaMiddleware.run(categoriasSaga);
+sagaMiddleware.run(carrinhoSaga);
 
 export default store;

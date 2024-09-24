@@ -1,15 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { formatarPreco } from "utils/formatarPreco";
 import Header from "components/Header";
 import Item from "components/Item";
-
-import styles from "./Carrinho.module.scss";
-import { resetarCarrinho } from "store/reducers/carrinho";
 import Button from "components/Button";
 
+import styles from "./Carrinho.module.scss";
+
 export default function Carrinho() {
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { carrinho, total } = useSelector((state) => {
     let total = 0;
@@ -57,7 +57,7 @@ export default function Carrinho() {
           </span>
         </div>
 
-        <Button onClick={() => dispatch(resetarCarrinho())}>
+        <Button onClick={() => navigate('/pagamento')}>
           Finalizar compra
         </Button>
       </div>
