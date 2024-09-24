@@ -8,7 +8,6 @@ import styles from "./Home.module.scss";
 import Header from "components/Header";
 import Button from "components/Button";
 import { carregarCategorias } from "store/reducers/categorias";
-import { buscarItens } from "store/reducers/items";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -18,7 +17,6 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(carregarCategorias());
-    dispatch(buscarItens());
   }, [dispatch]);
 
   return (
