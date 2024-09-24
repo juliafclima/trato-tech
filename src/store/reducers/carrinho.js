@@ -1,6 +1,6 @@
 import { createAction, createSlice } from "@reduxjs/toolkit";
 
-const initialState = [];
+const initialState = { data: [], total: 0 };
 
 export const carregarPagamento = createAction("carrinho/carregarPagamento");
 
@@ -22,10 +22,13 @@ const carrinhoSlice = createSlice({
       });
     },
     resetarCarrinho: () => initialState,
+    mudarTotal: (state, { payload }) => {
+      state.total = payload;
+    }
   },
 });
 
-export const { mudarCarrinho, mudarQuantidade, resetarCarrinho } =
+export const { mudarCarrinho, mudarQuantidade, resetarCarrinho, mudarTotal } =
   carrinhoSlice.actions;
 
 export default carrinhoSlice.reducer;
